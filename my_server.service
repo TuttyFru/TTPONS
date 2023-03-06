@@ -1,0 +1,16 @@
+# Файл my_server.service
+[Unit]
+Description=Gunicorn instance
+After=network.target
+
+[Service]
+User=
+Group=wheel
+Restart=on-failure
+RestartSec=5s
+WorkingDirectory=/home/pavlov/Desktop/TTPONS
+Enviroment="PATH=/home/pavlov/Desktop/TTPONS/venv/bin"
+ExecStart=/home/pavlov/Desktop/TTPONS/venv/bin/gunicorn -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:80 src.main:app
+
+[Install]
+WantedBy=multi-user.target
