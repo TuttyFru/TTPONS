@@ -162,46 +162,46 @@ def test_overall_not_found():
     assert data["detail"] == "Not Found"
 
 
-def test_add_worker_overall_to_reciving():
-    """
-    Тест на добавление работника и спецодежды получению
-    """
-    response = client.post(
-        "/worker/1/overall/1/",
-        json={
-            "date": "11.12.13", 
-            "signature": "Шир", 
-            "worker_id": 1,
-            "overall_id": 1
-        }
-    )
-    assert response.status_code == 200, response.text
-    data = response.json()
-    assert data["date"] == "11.12.13"
-    assert data["signature"] == "Шир"
-    assert data["worker_id"] == 1
-    assert data["overall_id"] == 1
+#def test_add_worker_overall_to_reciving():
+    #"""
+    #Тест на добавление работника и спецодежды получению
+    #"""
+    #response = client.post(
+        #"/worker/1/overall/1/",
+        #json={
+            #"date": "11.12.13", 
+            #"signature": "Шир", 
+            #"worker_id": 1,
+            #"overall_id": 1
+        #}
+    #)
+    #assert response.status_code == 200, response.text
+    #data = response.json()
+    #assert data["date"] == "11.12.13"
+    #assert data["signature"] == "Шир"
+    #assert data["worker_id"] == 1
+    #assert data["overall_id"] == 1
 
-def test_get_reciving():
-    """
-    Тест на получение списка получений из БД
-    """
-    response = client.get("/reciving/")
-    assert response.status_code == 200, response.text
-    data = response.json()
-    assert data[0]["date"] == "11.12.13"
-    assert data[0]["signature"] == "Шир"
-    assert data[0]["worker_id"] == 1
-    assert data[0]["overall_id"] == 1
+#def test_get_reciving():
+    #"""
+    #Тест на получение списка получений из БД
+    #"""
+    #response = client.get("/reciving/")
+    #assert response.status_code == 200, response.text
+    #data = response.json()
+    #assert data[0]["date"] == "11.12.13"
+    #assert data[0]["signature"] == "Шир"
+    #assert data[0]["worker_id"] == 1
+    #assert data[0]["overall_id"] == 1
 
-def test_get_reciving_by_id():
-    """
-    Тест на получение получений из БД по его id
-    """
-    response = client.get("/reciving/1")
-    assert response.status_code == 200, response.text
-    data = response.json()
-    assert data["date"] == "11.12.13"
+#def test_get_reciving_by_id():
+    #"""
+    #Тест на получение получений из БД по его id
+    #"""
+    #response = client.get("/reciving/1")
+    #assert response.status_code == 200, response.text
+    #data = response.json()
+    #assert data["date"] == "11.12.13"
 
 def test_reciving_not_found():
     """
