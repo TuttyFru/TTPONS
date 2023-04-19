@@ -1,5 +1,4 @@
 # Имя для данного workflow
-#
 name: Test code and deploy
 # Триггер по которому будет срабатывать workflow, в данном случае при отправке кода в ветку master
 on:
